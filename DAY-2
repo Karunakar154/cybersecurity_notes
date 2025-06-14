@@ -1,0 +1,89 @@
+# 🛡️ Day 2 – Linux Commands for Cybersecurity
+
+---
+
+## 📌 1. Basic Linux Commands
+
+| Command          | Description                                 |
+|------------------|---------------------------------------------|
+| `pwd`            | Print current working directory             |
+| `ls`             | List files and folders                      |
+| `cd`             | Change directory                            |
+| `mkdir`          | Create a new directory                      |
+| `touch`          | Create an empty file                        |
+| `rm`             | Remove file or directory                    |
+| `cp`             | Copy files or directories                   |
+| `mv`             | Move or rename files/directories            |
+| `clear`          | Clears the terminal screen                  |
+| `man [command]`  | Shows manual/help page for a command        |
+| `history`        | Displays command history                    |
+
+---
+
+## 🌐 2. Networking Commands
+
+| Command                  | Description                                             |
+|--------------------------|---------------------------------------------------------|
+| `ip a` or `ifconfig`     | Shows IP address configuration                          |
+| `ping [hostname/IP]`     | Tests network connectivity                              |
+| `netstat -tuln`          | Lists open ports and listening services                 |
+| `ss -tuln`               | Replacement for `netstat`, faster                       |
+| `traceroute [host]`      | Shows route packets take to reach host                  |
+| `nslookup [domain]`      | DNS lookup for domain names                             |
+| `dig [domain]`           | Advanced DNS lookup tool                                |
+| `curl [url]`             | Fetches content from a web address                      |
+| `wget [url]`             | Downloads files from the internet                       |
+
+---
+
+## 🛠️ 3. Service and Log Commands
+
+| Command                            | Description                                      |
+|------------------------------------|--------------------------------------------------|
+| `systemctl status [service]`       | Checks the status of a service                  |
+| `systemctl start/stop/restart`     | Start/stop/restart a service                    |
+| `journalctl`                       | Displays system logs (persistent logs)          |
+| `journalctl -xe`                   | Shows logs for errors and warnings              |
+| `tail -f /var/log/syslog`          | Real-time logs monitoring                       |
+| `dmesg`                            | Kernel ring buffer messages                     |
+| `who` / `w`                        | Shows who is logged into the system             |
+
+---
+
+## 🖥️ 4. System Administration Commands
+
+| Command                      | Description                                        |
+|------------------------------|----------------------------------------------------|
+| `sudo [command]`             | Run command as superuser                          |
+| `su`                         | Switch to root user                               |
+| `adduser [username]`         | Add a new user                                    |
+| `passwd [username]`          | Set or change user password                       |
+| `chmod`                      | Change file/folder permissions                    |
+| `chown`                      | Change file/folder ownership                      |
+| `top` / `htop`               | Show running processes                            |
+| `kill [PID]`                 | Kill a process by its ID                          |
+| `df -h`                      | Shows disk usage                                  |
+| `free -m`                    | Displays memory usage                             |
+| `crontab -e`                 | Edit scheduled tasks (cron jobs)                  |
+
+---
+
+## 📁 5. Linux File System / Directories
+
+| Directory        | Purpose                                                  |
+|------------------|-----------------------------------------------------------|
+| `/`              | Root directory – top of the hierarchy                     |
+| `/home/`         | User home directories                                     |
+| `/bin/`          | Essential system binaries                                 |
+| `/sbin/`         | System binaries (root/admin)                              |
+| `/etc/`          | Configuration files                                       |
+| `/var/`          | Variable files like logs, mail, spool                     |
+| `/tmp/`          | Temporary files                                           |
+| `/usr/`          | User-related programs and data                            |
+| `/lib/`          | Shared system libraries                                   |
+| `/dev/`          | Device files (e.g., hard drives, USBs)                    |
+| `/proc/`         | Virtual filesystem for system info                        |
+
+---
+
+
