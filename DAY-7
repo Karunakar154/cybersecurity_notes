@@ -1,0 +1,185 @@
+# 🔐 Day 7 – Password Cracking, Network Attacks, Forensics & Cloud Security
+
+---
+
+## 🔑 1. Password Cracking and Hashing
+
+### 🔹 What is Hashing?
+Hashing is a **one-way function** that converts data into a fixed-length string. Used for password storage.
+
+### 🔹 Common Hash Algorithms:
+- MD5 – Fast but weak (easily cracked)
+- SHA-1 – Better than MD5, but still weak
+- SHA-256 – Secure and used widely
+
+### 🔹 Tools for Hashing:
+```bash
+echo -n "password123" | md5sum
+echo -n "password123" | sha256sum
+
+🔹 Password Cracking Methods:
+Type	Description
+Brute Force	- Try every possible combination
+Dictionary Attack- 	Use a list of common passwords
+Hybrid Attack	- Dictionary + random characters
+Rainbow Tables	- Precomputed hashes for fast cracking
+🔹 Tools:
+John the Ripper – Fast offline cracking
+
+Hashcat – GPU-accelerated password recovery
+
+Hydra – Online brute-force tool (SSH, FTP, HTTP)
+ 2. Wireshark and Network Testing
+🔹 What is Wireshark?
+Wireshark is a GUI-based network protocol analyzer used to capture and inspect packets in real-time.
+
+🔹 Key Features:
+Capture live network traffic
+
+Filter and analyze packets
+
+Detect protocols and services
+
+🔹 Common Filters:
+Filter	Description
+ip.addr == x.x.x.x	Filter by IP
+tcp.port == 80	Filter by port
+http	View HTTP traffic
+dns	View DNS queries
+
+🔹 Use Cases:
+Capture login credentials (if unencrypted)
+
+Analyze suspicious network traffic
+
+Troubleshoot connectivity
+ 3. Wireless Network Hacking
+🔹 Targets:
+Wi-Fi (WEP, WPA/WPA2, WPA3)
+
+Access Points
+
+Weak passwords
+
+🔹 Tools:
+aircrack-ng suite
+
+airmon-ng – Enable monitor mode
+
+airodump-ng – Capture packets
+
+aireplay-ng – Deauth attack
+
+aircrack-ng – Crack handshake
+
+Wifite – Automated wireless attack tool
+
+Kismet – Wireless network detector/sniffer
+
+🔹 Cracking WPA2 WiFi:
+bash
+Copy
+Edit
+airmon-ng start wlan0
+airodump-ng wlan0mon
+aireplay-ng --deauth 10 -a <BSSID> wlan0mon
+aircrack-ng -w wordlist.txt capture.cap
+4. Digital Forensics
+🔹 What is Digital Forensics?
+The process of identifying, preserving, analyzing, and presenting digital evidence.
+
+🔹 Forensics Process:
+Identification – Find the data source
+
+Preservation – Maintain integrity (write blockers)
+
+Analysis – Examine data
+
+Documentation & Reporting
+
+🔹 Tools:
+Autopsy/Sleuth Kit – GUI forensic suite
+
+FTK Imager – Imaging and preview
+
+Volatility – Memory forensics
+
+ExifTool – Metadata extraction
+
+X-Ways – Professional digital investigation suite
+
+🔹 Use Cases:
+Investigating cyber crimes
+
+Recovering deleted files
+
+Tracing intrusions and malware
+5. Cloud Computing and Security (AWS & Azure)
+🔹 Cloud Computing Models:
+Model	Example	Description
+IaaS	AWS EC2, Azure VM	Infrastructure as a Service
+PaaS	AWS Elastic Beanstalk	Platform as a Service
+SaaS	Gmail, Office365	Software as a Service
+
+🔹 Cloud Security Concerns:
+Misconfigured buckets (S3, Azure Blob)
+
+Unauthorized access
+
+Insecure APIs
+
+Identity and Access Management (IAM)
+
+🔹 AWS Security Features:
+IAM roles and policies
+
+CloudTrail (logging)
+
+GuardDuty (threat detection)
+
+Security Groups / NACLs
+
+🔹 Azure Security Tools:
+Azure Defender
+
+Azure Policy
+
+Key Vault
+
+Role-Based Access Control (RBAC)
+6. TOR, Anonymous & Proxy Services
+🔹 TOR (The Onion Router):
+Encrypts traffic in layers
+
+Anonymizes source IP
+
+Access to .onion websites (Dark Web)
+
+Usage:
+
+Use Tor Browser
+
+Routes traffic via multiple nodes
+
+Caution: Not fully secure without good OPSEC.
+
+🔹 Anonymous Services:
+Tails OS – Live OS for anonymity
+
+VPNs – Encrypt traffic, hide IP
+
+I2P – Invisible Internet Project (peer-to-peer anonymity)
+
+🔹 Proxy Services:
+Type	Description
+HTTP Proxy	Masks IP, basic filtering
+SOCKS Proxy	Works with all types of traffic
+Transparent Proxy	No user interaction, often for filtering
+
+Tools:
+
+ProxyChains
+
+Tor + VPN
+
+Burp Suite for manual proxying
