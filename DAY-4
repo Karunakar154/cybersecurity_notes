@@ -1,0 +1,87 @@
+# 💻 Day 4 – Windows Command Line, PowerShell & Admin Tasks
+
+---
+
+## ⚙️ 1. Basic CMD Commands
+
+| Command             | Description                                |
+|---------------------|--------------------------------------------|
+| `dir`               | List directory contents                    |
+| `cd`                | Change directory                           |
+| `cls`               | Clear the terminal                         |
+| `copy`              | Copy files                                 |
+| `move`              | Move files                                 |
+| `del`               | Delete files                               |
+| `ipconfig`          | View network configuration                 |
+| `ping <host>`       | Test network connectivity                  |
+| `netstat -an`       | View active connections and ports          |
+| `tasklist`          | List running processes                     |
+| `taskkill /PID <id>`| Kill a process using its PID               |
+| `systeminfo`        | View system details                        |
+| `hostname`          | Show the computer’s hostname               |
+| `shutdown -s -t 0`  | Shutdown PC instantly                      |
+
+---
+
+## 📜 2. Batch Scripting (CMD Automation)
+
+### 🔹 What is a Batch Script?
+- A `.bat` or `.cmd` file that contains a series of DOS commands.
+- Used to automate repetitive tasks.
+
+### 🔹 Example Script
+```batch
+@echo off
+echo Gathering System Info...
+systeminfo > systeminfo.txt
+ipconfig >> systeminfo.txt
+echo Info saved to systeminfo.txt
+pause
+🔹 Real-World Uses:
+Backup automation
+
+Collecting system/network info
+
+Starting/stopping programs
+
+Monitoring and cleaning tas
+3. Introduction to PowerShell
+🔹 What is PowerShell?
+A powerful shell and scripting language designed for system administration.
+
+Built on .NET and supports object-oriented scripting.
+
+Can automate almost all Windows system tasks.
+
+🔹 Common PowerShell Cmdlets
+Command	Description
+Get-Process	List running processes
+Stop-Process -Name "notepad"	Stop a process by name
+Get-Service	List all services
+Start-Service / Stop-Service	Start or stop a service
+Get-EventLog -LogName System	Show system event logs
+Set-ExecutionPolicy RemoteSigned	Allow running scripts
+Get-Command	List all available PowerShell commands
+Get-Help <cmdlet>	Get help about any cmdlet
+
+ 4. System Administration & Security Tasks
+🔹 CMD for Admin/Security Tasks
+Task	CMD Command
+View users	net user
+View admin group	net localgroup administrators
+Check open ports	netstat -ano
+View file attributes	attrib filename
+Run disk check	chkdsk
+System file check	sfc /scannow
+
+🔹 PowerShell for Admin/Security
+Task	PowerShell Command
+List users	Get-LocalUser
+Create user	New-LocalUser -Name "karun" -Password (Read-Host -AsSecureString)
+Check running services	`Get-Service
+Export system info	`Get-ComputerInfo
+View security logs	Get-WinEvent -LogName Security -MaxEvents 10
+Check network connections	Get-NetTCPConnection
+Check firewall profile status	Get-NetFirewallProfile
+Disable Remote Desktop	Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 1
+
