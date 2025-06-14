@@ -1,0 +1,104 @@
+# 🌐 Day 8 – Web Hacking, Burp Suite, Fuzzing & Subdomain Enumeration
+
+---
+
+## 🧨 1. Introduction to Web Hacking
+
+### 🔹 What is Web Hacking?
+Web hacking involves exploiting vulnerabilities in web applications or servers to gain unauthorized access, leak data, or perform malicious actions.
+
+### 🔹 Common Web Vulnerabilities:
+| Vulnerability          | Description                                |
+|------------------------|--------------------------------------------|
+| SQL Injection (SQLi)   | Injecting SQL commands via input fields    |
+| Cross-Site Scripting (XSS) | Injecting malicious scripts into web pages |
+| Command Injection      | Executing OS commands via web inputs       |
+| File Inclusion (LFI/RFI)| Including local or remote files            |
+| Cross-Site Request Forgery (CSRF) | Forcing users to execute unwanted actions |
+| Broken Authentication  | Predictable session IDs, weak tokens       |
+| Security Misconfigurations | Exposed admin panels, default creds     |
+
+---
+
+## 🧰 2. Introduction to Burp Suite
+
+### 🔹 What is Burp Suite?
+Burp Suite is a powerful web security testing platform used by ethical hackers to test, intercept, and manipulate HTTP/S requests.
+
+### 🔹 Key Components:
+| Component     | Function                                        |
+|---------------|-------------------------------------------------|
+| **Proxy**     | Intercepts requests/responses                   |
+| **Target**    | Scope and sitemap management                    |
+| **Repeater**  | Manual request modification                     |
+| **Intruder**  | Automated fuzzing/brute force                   |
+| **Decoder**   | Encode/decode base64, URL, HTML, etc.           |
+| **Comparer**  | Compare requests and responses                  |
+| **Scanner** _(Pro)_ | Auto vulnerability scanning               |
+
+### 🔹 Usage Flow:
+1. Configure browser to use Burp Proxy (127.0.0.1:8080)
+2. Intercept and analyze request
+3. Send to Repeater or Intruder for manual testing
+4. Use plugins or extensions (e.g., Turbo Intruder)
+
+---
+
+## 🧪 3. Fuzzing & Directory Enumeration
+
+### 🔹 What is Fuzzing?
+Fuzzing is sending unexpected/malicious inputs to a web app to discover vulnerabilities or hidden behaviors.
+
+### 🔹 Examples of Fuzzing:
+- Input injection: test `' OR 1=1--`, `<script>alert(1)</script>`
+- Path traversal: `../../etc/passwd`
+- HTTP Headers: `X-Forwarded-For`, `Referer`, etc.
+
+### 🔹 Tools for Fuzzing:
+- **Burp Suite Intruder**
+- **ffuf** – Fast web fuzzer
+- **wfuzz** – Fuzzing HTTP parameters
+- **Dirb** / **Dirbuster** / **gobuster** – Directory brute-forcing
+
+### 🔹 Sample `ffuf` Command:
+```bash
+ffuf -u https://example.com/FUZZ -w /usr/share/wordlists/dirb/common.txt
+🔹 Directory Enumeration
+Discovering hidden files and folders in web apps.
+
+Tool	Description
+dirb	Brute force directories from a wordlist
+gobuster	Fast and powerful dir enumeration tool
+dirsearch	Python-based, supports extensions and recursion
+
+bash
+Copy
+Edit
+gobuster dir -u https://target.com -w /usr/share/wordlists/dirb/common.txt
+
+ 4. Subdomain Enumeration
+🔹 What is Subdomain Enumeration?
+Finding hidden or unused subdomains of a domain that may expose services or vulnerabilities.
+
+🔹 Passive Methods:
+DNS dump tools (e.g., VirusTotal, crt.sh)
+
+Google Dorking: site:*.example.com
+
+🔹 Active Methods:
+DNS brute-forcing using wordlists
+
+Zone transfer (rare, but dangerous if misconfigured)
+
+🔹 Tools:
+Tool	Description
+sublist3r	Fast subdomain discovery tool
+amass	Powerful active/passive enumeration
+assetfinder	Find related domains and subdomains
+dnsenum	DNS information gathering tool
+
+bash
+Copy
+Edit
+sublist3r -d example.com
+amass enum -passive -d example.com
