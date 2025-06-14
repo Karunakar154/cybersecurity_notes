@@ -1,0 +1,118 @@
+# 🛡️ Day 3 – System Administration & Windows Security
+
+---
+
+## 🖥️ 1. System Administration Commands (Linux)
+
+| Command                  | Description                                        |
+|--------------------------|----------------------------------------------------|
+| `sudo`                   | Execute a command as the superuser                |
+| `adduser username`       | Create a new user                                 |
+| `usermod -aG group user` | Add a user to a group                             |
+| `passwd username`        | Change a user's password                          |
+| `chmod`                  | Change file/folder permissions                    |
+| `chown`                  | Change file/folder ownership                      |
+| `top` / `htop`           | Monitor system processes                          |
+| `df -h`                  | Disk usage in human-readable format               |
+| `free -m`                | Check memory usage                                |
+| `uptime`                 | Shows system load and uptime                      |
+
+---
+
+## 📁 2. Linux File System / Directories
+
+| Directory      | Purpose                                                      |
+|----------------|--------------------------------------------------------------|
+| `/`            | Root directory, top of the file system                       |
+| `/home/`       | Contains personal directories for each user                  |
+| `/etc/`        | Configuration files                                          |
+| `/bin/`        | Basic essential binaries (commands like `ls`, `cp`, etc.)   |
+| `/sbin/`       | System binaries used by root/admin                          |
+| `/var/`        | Variable data like logs, mail, spool                         |
+| `/tmp/`        | Temporary files (auto-deleted on reboot)                    |
+| `/usr/`        | User programs and libraries                                 |
+| `/dev/`        | Device files (e.g., storage, USB)                           |
+| `/proc/`       | Virtual system info files (e.g., CPU, memory)               |
+
+---
+
+## 🔐 3. Access Control Types
+
+| Type                     | Description                                              |
+|--------------------------|----------------------------------------------------------|
+| **DAC** (Discretionary)  | Owner sets permissions (Linux `chmod`, Windows ACLs)     |
+| **MAC** (Mandatory)      | Access based on policy and classification levels         |
+| **RBAC** (Role-Based)    | Access is based on job roles (common in enterprise)       |
+| **ABAC** (Attribute-Based)| Access based on user, resource, environment attributes  |
+
+---
+
+## 🔐 4. Permissions and UAC
+
+### 🔹 Linux File Permissions
+- Format: `-rwxr-xr--`
+  - First character: file `-` or directory `d`
+  - Next 3: **Owner** (rwx)
+  - Next 3: **Group** (r-x)
+  - Last 3: **Others** (r--)
+
+| Symbol | Meaning      |
+|--------|--------------|
+| `r`    | Read         |
+| `w`    | Write        |
+| `x`    | Execute      |
+
+### 🔹 UAC (User Account Control) – Windows
+- Prevents unauthorized changes to the system.
+- Prompts for admin permission when high-level changes are attempted.
+- Reduces malware risk by limiting application privileges.
+
+---
+
+## 🔥 5. Windows Firewall & Windows Defender
+
+### 🔹 Windows Firewall
+- Controls incoming/outgoing network traffic.
+- Can allow/block programs or ports.
+- Managed via `Control Panel → Firewall` or:
+
+### 🔹 Windows Defender
+- Built-in antivirus & antimalware tool.
+- Offers real-time protection and periodic scans.
+- Controlled via **Windows Security Center** or PowerShell:
+
+---
+
+## 💻 6. Windows Remote Management & RDP
+
+| Feature         | Description                                                |
+|-----------------|------------------------------------------------------------|
+| **WinRM**       | Command-line remote management via PowerShell             |
+| **RDP**         | Remote Desktop Protocol for GUI-based remote access       |
+| **Enable RDP**  | `System Properties → Remote Settings → Enable Remote Desktop` |
+| **Enable WinRM**| Run: `winrm quickconfig` in CMD or PowerShell             |
+
+---
+
+## ⚙️ 7. Basic CMD Commands & Batch Scripting
+
+### 🔹 Common CMD Commands
+
+| Command           | Description                             |
+|-------------------|-----------------------------------------|
+| `dir`             | List files in current directory         |
+| `cd`              | Change directory                        |
+| `cls`             | Clear the screen                        |
+| `copy file1 file2`| Copy file                               |
+| `del`             | Delete file                             |
+| `ipconfig`        | Display IP address and network info     |
+| `ping`            | Check network connectivity              |
+| `tasklist`        | Show running processes                  |
+| `taskkill`        | Kill a process                          |
+
+### 🔹 Batch Script Example:
+```batch
+@echo off
+echo Hello, this is a batch script!
+ipconfig
+pause
