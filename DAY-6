@@ -1,0 +1,144 @@
+# 🛡️ Day 6 – Footprinting, Enumeration, Vulnerability Assessment & System Hacking
+
+---
+
+## 🌐 1. Footprinting, Reconnaissance, and Enumeration
+
+### 🔹 Footprinting
+**Definition:** The process of collecting information about a target system or organization before launching an attack.
+
+**Types:**
+- **Passive Footprinting:** No direct interaction with the target (e.g., Google, WHOIS, Shodan).
+- **Active Footprinting:** Direct interaction (e.g., ping, traceroute).
+
+**Tools/Techniques:**
+- `whois domain.com` – Domain info
+- `nslookup domain.com` – DNS information
+- `tracert domain.com` – Route to host
+- Google Dorking – `site:example.com filetype:pdf`
+
+---
+
+### 🔹 Reconnaissance
+**Definition:** Broader info gathering on the target’s systems, networks, and employees.
+
+**Types:**
+- **Social Engineering**
+- **Search Engine Discovery**
+- **Email Harvesting**
+
+**Tools:**
+- Maltego
+- theHarvester
+- Recon-ng
+
+---
+
+### 🔹 Enumeration
+**Definition:** Extracting more detailed information such as usernames, shares, services, etc.
+
+**Techniques:**
+- NetBIOS Enumeration – `nbtstat -A <IP>`
+- SNMP Enumeration – `snmpwalk`
+- LDAP Enumeration – `ldapsearch`
+- SMB Enumeration – `enum4linux`
+
+**Tools:**
+- `Nmap` – Service/port scan  
+- `enum4linux` – SMB share, users, policies  
+- `RPCClient` – Windows enumeration  
+- `Netcat` – Banner grabbing
+
+---
+
+## 🕳️ 2. Vulnerability Assessment and Reporting
+
+### 🔹 What is a Vulnerability?
+A weakness or flaw in software, hardware, or configuration that can be exploited.
+
+### 🔹 Vulnerability Assessment
+**Goal:** Identify and prioritize vulnerabilities in systems.
+
+**Steps:**
+1. Asset Discovery  
+2. Vulnerability Scanning  
+3. Risk Rating (CVSS Score)  
+4. Reporting
+
+### 🔹 Tools:
+- **Nessus** – Industry-standard scanner  
+- **OpenVAS** – Open-source scanning  
+- **Nikto** – Web server vulnerabilities  
+- **Nmap + NSE Scripts** – Detect open ports & known flaws  
+- **Burp Suite** – Web application testing  
+
+### 🔹 Vulnerability Reporting Format:
+```markdown
+# Sample Vulnerability Report
+
+- **Vulnerability Name:** SQL Injection
+- **Asset:** https://target.com/login
+- **Risk Level:** High
+- **CVE-ID:** CVE-2023-1234
+- **Description:** SQL query can be manipulated via input field
+- **Proof of Concept:** `' OR '1'='1`
+- **Impact:** Unauthorized access
+- **Remediation:** Use parameterized queries and input validation
+3. Windows and Linux System Hacking
+🔹 Windows System Hacking
+🔸 Common Targets:
+SAM (Security Account Manager) database
+
+Admin credentials
+
+RDP, SMB vulnerabilities
+
+🔸 Techniques:
+Bypassing login using sticky keys trick
+
+Dumping credentials using mimikatz
+
+Reverse shell using nc.exe or PowerShell
+
+Exploiting EternalBlue (MS17-010) with Metasploit
+
+🔸 Tools:
+Metasploit
+
+Mimikatz
+
+Evil-WinRM
+
+PowerView
+
+Nishang
+
+Sysinternals tools
+
+🔹 Linux System Hacking
+🔸 Common Targets:
+/etc/passwd and /etc/shadow files
+
+Weak SSH credentials
+
+SUID misconfigurations
+
+🔸 Techniques:
+Brute-force SSH (e.g., hydra)
+
+Escalate via SUID binaries
+
+Exploit cron jobs or writable scripts
+
+Use kernel exploits for privilege escalation
+
+🔸 Tools:
+nmap, netcat, hydra
+
+linpeas.sh – Privilege Escalation Audit Script
+
+pspy – Process monitoring
+
+gobuster – Directory brute-forcing
+
+John the Ripper – Cracking hashes
