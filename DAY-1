@@ -1,0 +1,79 @@
+# 🛡️ Day 1 – Cybersecurity Fundamentals
+
+## 🔐 1. Definition
+**Cybersecurity** is the practice of protecting computers, networks, programs, and data from unauthorized access, attacks, damage, or theft.
+
+---
+
+## 🎯 2. Importance and Scope
+
+### 🔸 Importance:
+- **Data Protection:** Safeguards personal, corporate, and governmental data.
+- **Trust Building:** Builds customer and user trust in digital systems.
+- **Business Continuity:** Prevents disruptions in services and operations.
+- **Financial Security:** Protects against financial loss due to cybercrime.
+- **National Defense:** Helps secure critical national infrastructure.
+
+### 🔸 Scope:
+Cybersecurity covers multiple domains, such as:
+- **Network Security**
+- **Information Security**
+- **Application Security**
+- **Endpoint Security**
+- **Operational Security**
+- **Disaster Recovery**
+- **User Awareness and Training**
+
+---
+
+## ⚠️ 3. Types of Cyber Threats
+
+| **Threat Type**         | **Description**                                                        |
+|-------------------------|------------------------------------------------------------------------|
+| **Malware**             | Software designed to cause harm – includes viruses, worms, spyware     |
+| **Phishing**            | Fraudulent attempts to obtain sensitive information via email or SMS   |
+| **Man-in-the-Middle**   | Attacker secretly intercepts and possibly alters communications        |
+| **Denial of Service**   | Overwhelms a system to make services unavailable                       |
+| **SQL Injection**       | Injecting malicious SQL code to manipulate databases                   |
+| **Zero-Day Exploit**    | Attacks on vulnerabilities before they are patched                     |
+| **Insider Threats**     | Harm caused by employees or others within an organization              |
+
+---
+
+## 🔒 4. CIA Triad: Core Principles
+
+The **CIA Triad** forms the foundation of cybersecurity:
+
+- 🕵️ **Confidentiality** – Ensuring information is accessible only to authorized people.
+- 🧬 **Integrity** – Guaranteeing data accuracy and reliability.
+- 🔓 **Availability** – Ensuring timely and reliable access to data and systems.
+
+---
+
+## ⚖️ 5. Cybersecurity Ethics
+
+Cybersecurity professionals must follow ethical principles:
+- ✅ **Respect Privacy** – Avoid unauthorized data access.
+- ✅ **Do No Harm** – Do not cause damage intentionally.
+- ✅ **Be Honest** – Disclose vulnerabilities and mistakes.
+- ✅ **Act Legally** – Follow cybersecurity laws and policies.
+- ✅ **Be Accountable** – Take responsibility for actions and decisions.
+
+---
+
+## ✅ 6. Principles and Best Practices
+
+| **Best Practice**             | **Purpose**                                                             |
+|-------------------------------|-------------------------------------------------------------------------|
+| **Least Privilege Access**    | Give only the minimum access required                                   |
+| **Multi-Factor Authentication** | Adds an extra layer of protection beyond passwords                     |
+| **Defense in Depth**          | Use multiple layers of defense to protect data                          |
+| **Regular Software Updates**  | Fixes security flaws and vulnerabilities                                |
+| **Security Awareness Training**| Educates users about phishing and social engineering attacks            |
+| **Backup and Recovery**       | Enables restoration of data after an attack                             |
+| **Encryption**                | Protects data in storage and transmission                               |
+| **Monitoring and Logging**    | Helps in detecting unusual activity and responding to incidents         |
+
+---
+
+
