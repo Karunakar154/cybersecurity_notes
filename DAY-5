@@ -1,0 +1,122 @@
+# ⚡ PowerShell & Command Line for System Administration
+
+---
+
+## 🧠 Introduction to PowerShell
+
+### 🔹 What is PowerShell?
+
+PowerShell is a **command-line shell** and **scripting language** developed by Microsoft, built on the .NET framework. It's used for **task automation**, **configuration management**, and **system administration** in Windows.
+
+### ✅ Features:
+- Object-oriented: Works with objects, not just text
+- Integrated with .NET and Windows
+- Automates repetitive tasks via scripts
+- Can access COM, WMI, Registry, Event Logs, etc.
+- More powerful than CMD
+
+---
+
+## 🔍 PowerShell Syntax Basics
+
+| Element              | Example                                | Description                             |
+|----------------------|----------------------------------------|-----------------------------------------|
+| Cmdlet               | `Get-Process`                          | Built-in PowerShell command              |
+| Pipe (`|`)           | `Get-Service | Where-Object {...}`     | Pass output from one cmdlet to another  |
+| Variable             | `$name = "admin"`                      | Store data                               |
+| Script File          | `script.ps1`                           | PowerShell script extension              |
+| Execution Policy     | `Set-ExecutionPolicy RemoteSigned`     | Allow/deny script execution              |
+
+---
+
+## 🛠️ Common PowerShell Cmdlets
+
+| Task                         | PowerShell Command                                      |
+|------------------------------|----------------------------------------------------------|
+| List processes               | `Get-Process`                                            |
+| Stop a process               | `Stop-Process -Name "notepad"`                          |
+| List services                | `Get-Service`                                            |
+| Start/Stop a service         | `Start-Service 'wuauserv'`, `Stop-Service 'wuauserv'`    |
+| System info                  | `Get-ComputerInfo`                                       |
+| List users                   | `Get-LocalUser`                                          |
+| Export info to file          | `Get-ComputerInfo | Out-File systeminfo.txt`            |
+| View installed programs      | `Get-WmiObject -Class Win32_Product`                     |
+| Get help for command         | `Get-Help Get-Process`                                   |
+
+---
+
+## 🧰 Using CMD and PowerShell for System Admin Tasks
+
+### 🔹 1. User & Account Management
+
+| Task                         | CMD Command                      | PowerShell Command                         |
+|------------------------------|----------------------------------|--------------------------------------------|
+| List users                   | `net user`                       | `Get-LocalUser`                             |
+| Add a user                   | `net user karun pass123 /add`    | `New-LocalUser -Name "karun"`               |
+| Add to admin group           | `net localgroup administrators karun /add` | `Add-LocalGroupMember -Group "Administrators" -Member "karun"` |
+
+---
+
+### 🔹 2. Network Information
+
+| Task                         | CMD Command          | PowerShell Command           |
+|------------------------------|----------------------|-------------------------------|
+| View IP address              | `ipconfig`           | `Get-NetIPAddress`            |
+| Test connection              | `ping google.com`    | `Test-Connection google.com`  |
+| Active ports/connections     | `netstat -an`        | `Get-NetTCPConnection`        |
+
+---
+
+### 🔹 3. Task & Process Management
+
+| Task                         | CMD                  | PowerShell                   |
+|------------------------------|----------------------|-------------------------------|
+| View running processes       | `tasklist`           | `Get-Process`                 |
+| Kill process by PID          | `taskkill /PID 1234` | `Stop-Process -Id 1234`       |
+| Kill process by name         | `taskkill /IM notepad.exe` | `Stop-Process -Name "notepad"` |
+
+---
+
+### 🔹 4. System Monitoring & Info
+
+| Task                         | CMD                  | PowerShell                         |
+|------------------------------|----------------------|-------------------------------------|
+| System info                  | `systeminfo`         | `Get-ComputerInfo`                 |
+| Uptime (via boot time)       | `net statistics workstation` | `(Get-CimInstance Win32_OperatingSystem).LastBootUpTime` |
+| Disk usage                   | `wmic logicaldisk get size,freespace,caption` | `Get-PSDrive`          |
+
+---
+
+### 🔹 5. Event Logs & Security
+
+| Task                         | CMD                  | PowerShell                                 |
+|------------------------------|----------------------|---------------------------------------------|
+| View logs                    | `eventvwr` (GUI)     | `Get-EventLog -LogName System -Newest 10`  |
+| Security logs                | (Use event viewer)   | `Get-WinEvent -LogName Security -MaxEvents 5` |
+
+---
+
+### 🔹 6. Services Management
+
+| Task                         | CMD                  | PowerShell                      |
+|------------------------------|----------------------|----------------------------------|
+| View services                | `services.msc` (GUI) | `Get-Service`                   |
+| Start service                | -                    | `Start-Service -Name "wuauserv"`|
+| Stop service                 | -                    | `Stop-Service -Name "wuauserv"` |
+
+---
+
+## 📘 PowerShell Script Example
+
+```powershell
+# Filename: system_report.ps1
+$hostname = hostname
+$time = Get-Date
+$ip = (Get-NetIPAddress -AddressFamily IPv4).IPAddress
+$os = (Get-CimInstance Win32_OperatingSystem).Caption
+
+"System Report" | Out-File system_report.txt
+"Hostname: $hostname" | Out-File -Append system_report.txt
+"Date/Time: $time" | Out-File -Append system_report.txt
+"IP Address: $ip" | Out-File -Append system_report.txt
+"OS Version: $os" | Out-File -Append system_report.txt
